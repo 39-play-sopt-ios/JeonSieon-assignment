@@ -135,3 +135,11 @@ iOSInjectionProject/
 ### Env
 *.xcconfig
 .env
+
+# Project-specific
+# Build products
+*.app/
+*.dylib
+
+# Duplicate Info.plist copy
+Info 2.plist
