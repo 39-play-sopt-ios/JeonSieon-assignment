@@ -11,6 +11,6 @@ struct CheckButtonView: View {
     let notEmpty: Bool
 
     var body: some View {
-        Image(notEmpty ? "Check" : "NonCheck")
+        Image(notEmpty ? "NonCheck" : "Check")
     }
 }
