@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import RegexBuilder
 
 struct LoginView: View {
     @State var email : String = ""
     @State var isCliked : Bool = false
+    @State var next : Bool = false
     
     var body: some View {
         NavigationStack {
@@ -32,36 +34,32 @@ struct LoginView: View {
                     .foregroundStyle(.gray300)
                     .padding(.trailing, 97)
                     .padding(.leading, 30)
-
-                TextField("email@address.com", text: $email)
+                
+                TextFieldView(title: "email@address.com", text: $email)
                     .keyboardType(.emailAddress)
-                    .padding(.horizontal, 31)
-                    .frame(width: 313, height: 47)
-                    .background(
-                        RoundedRectangle(cornerRadius: 10)
-                            .fill(.white1)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 10)
-                                    .stroke(.gray400, lineWidth: 1)
-                            )
-                    )
+                    .textContentType(.emailAddress)
                     .overlay(alignment: .trailing){
                         HStack{
                             CloseButtonView(email: $email)
                                 .padding(.trailing, 4)
-                            CheckButtonView(notEmpty: !email.isEmpty)
+                            CheckButtonView(notEmpty: !email.isValidEmail)
                                 .padding(.trailing, 12)
-
                         }
                     }
                     .padding(.top, 27)
                     .padding(.leading, 31)
-                NextButtonView(email: $email, title: "다음") {
-                    SecretNumView(email: email, name: "", password: "")
+                
+                Spacer()
+                
+                NextButtonView(email: email, title: "다음", isDisabled: !email.isValidEmail) {
+                    next = true
                 }
-                    .padding(.horizontal, 22)
-                    .padding(.top, 383)
-                    .padding(.bottom, 13)
+                .padding(.horizontal, 22)
+                .padding(.bottom, 13)
+                
+            }
+            .navigationDestination(isPresented: $next) {
+                SecretNumView(email: email, next: false, name: "", password: "")
             }
         }
     }

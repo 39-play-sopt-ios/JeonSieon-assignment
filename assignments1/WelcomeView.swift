@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WelcomeView: View {
-    let name: String
+    let name : String
 
     var body: some View {
         
