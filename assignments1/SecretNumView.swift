@@ -69,7 +69,7 @@ struct SecretNumView: View {
                 .padding(.bottom, 13)
             }
             .navigationDestination(isPresented: $next) {
-                WelcomeView(name: email)
+                WelcomeView(name: name)
             }
         }
     }
