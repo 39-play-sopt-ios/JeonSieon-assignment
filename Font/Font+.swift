@@ -29,15 +29,21 @@ extension Font {
     static let head1 = pretendard(.bold, size: 28)
     static let head2 = pretendard(.semiBold, size: 23)
     static let head3 = pretendard(.semiBold, size: 20)
+    static let head4 = pretendard(.semiBold, size: 28)
+    
  
-    static let subhead1 = pretendard(.semiBold, size: 18)
-    static let subhead2 = pretendard(.semiBold, size: 16)
+    static let subhead1 = pretendard(.semiBold, size: 14)
+    static let subhead2 = pretendard(.semiBold, size: 12)
  
     static let body1 = pretendard(.medium, size: 12)
     static let body2 = pretendard(.regular, size: 12)
+    static let body3 = pretendard(.medium, size: 13)
  
     static let cap1 = pretendard(.medium, size: 12)
-    static let cap2 = pretendard(.regular, size: 11)
+    static let cap2 = pretendard(.regular, size: 12)
+    static let cap3 = pretendard(.regular, size: 14)
+    static let cap4 = pretendard(.medium, size: 14)
+
     
     static let medium = pretendard(.medium, size: 18)
 }
