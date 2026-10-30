@@ -50,9 +50,8 @@ struct StarbucksTabView: View {
                 .tag(TabCategory.other)
             }
             .tabViewStyle(.page(indexDisplayMode: .never))
-            .safeAreaInset(edge: .bottom) {
+            .safeAreaInset(edge: .bottom, spacing: 0) {
                 CustomTabBar(selectedTab: $selectedTab)
-
             }
         }
     }

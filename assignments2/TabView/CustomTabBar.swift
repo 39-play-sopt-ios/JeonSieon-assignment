@@ -1,5 +1,5 @@
 //
-//  CustomTabBarView.swift
+//  CustomTabBar.swift
 //  assignments2
 //
 //  Created by 전시언 on 10/24/26.
@@ -28,10 +28,10 @@ struct CustomTabBar: View {
         .padding(.horizontal, 24)
         .padding(.top, 14)
         .padding(.bottom, 24)
-        .background(.ultraThinMaterial)
+        .background(.ultraThinMaterial, ignoresSafeAreaEdges: .bottom)
     }
 
-    @ViewBuilder
+
     private func tabButton(title: String, imageName : String, tab: TabCategory) -> some View {
         Button {
             selectedTab = tab
@@ -41,7 +41,7 @@ struct CustomTabBar: View {
                     .font(.system(size: 18, weight: .semibold))
 
                 Text(title)
-                    .font(.caption2)
+                    .font(.cap2)
             }
             .foregroundStyle(.gray)
         }
