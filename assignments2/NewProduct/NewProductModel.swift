@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct NewProductModel: Identifiable {
+struct NewProductModel: Identifiable, Hashable {
     let id = UUID()
-    let teaImage : String
-    let teaName : String
-    let teaInfo : String
-    let teaPrice : String
+    let teaImage: String
+    let teaName: String
+    let teaInfo: String
+    let teaPrice: String
 }

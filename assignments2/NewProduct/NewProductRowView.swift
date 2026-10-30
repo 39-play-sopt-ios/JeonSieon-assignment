@@ -9,10 +9,10 @@ import SwiftUI
 
 struct NewProductRowView: View {
     let id = UUID()
-    let teaImage : String
-    let teaName : String
-    let teaInfo : String
-    let teaPrice : String
+    let teaImage: String
+    let teaName: String
+    let teaInfo: String
+    let teaPrice: String
     
     var body: some View {
         VStack {

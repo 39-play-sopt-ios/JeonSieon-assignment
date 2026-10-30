@@ -21,13 +21,8 @@ struct NewProductView: View {
             List{
                 ForEach(newProductModel.listNewProduct)
                 { post in
-                    if post.teaImage == "tea1" {
-                        NavigationLink {
-                            ProductInfoView()
-                        } label: {
-                            NewProductRowView(teaImage: post.teaImage, teaName: post.teaName, teaInfo: post.teaInfo, teaPrice: post.teaPrice)
-                        }
-                    } else {
+                    
+                    NavigationLink(value: post) {
                         NewProductRowView(teaImage: post.teaImage, teaName: post.teaName, teaInfo: post.teaInfo, teaPrice: post.teaPrice)
                     }
                 }

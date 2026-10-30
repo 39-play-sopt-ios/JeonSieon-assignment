@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Observation
 
 @Observable
 final class NewProductViewModel {
@@ -17,4 +16,7 @@ final class NewProductViewModel {
         NewProductModel(teaImage: "tea6", teaName: "스타벅스 자몽 허니 에어로카노", teaInfo: "Starbucks GrapeFruit Honey Aerocan", teaPrice: "6,100원")
     ]
         
+    func product(id: UUID) -> NewProductModel? {
+        listNewProduct.first { $0.id == id }
+    }
 }
