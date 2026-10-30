@@ -8,33 +8,36 @@
 import SwiftUI
 
 struct FullMenuView: View {
+    @Binding var isLiked: Bool
     @State private var teaModel = FullMenuViewModel()
     
     var body: some View {
-        List {
-            ForEach(teaModel.ListMenu) { post in
-                Group {
-                    if post.teaImage == "tea1" {
-                        NavigationLink {
-                            NewProductView()
-                        } label: {
+        VStack {
+            ProductListView()
+            
+            List {
+                ForEach(teaModel.ListMenu) { post in
+                    Group {
+                        if post.teaImage == "tea1" {
+                            NavigationLink(value: post) {
+                                MenuRowView(teaImage: post.teaImage, teaCategory: post.teaCategory)
+                            }
+                        }
+                        else {
                             MenuRowView(teaImage: post.teaImage, teaCategory: post.teaCategory)
                         }
                     }
-                    else {
-                        MenuRowView(teaImage: post.teaImage, teaCategory: post.teaCategory)
-                    }
+                    .listRowBackground(Color.white)
+                    .listRowSeparator(.hidden)
                 }
-                .listRowBackground(Color.white)
-                .listRowSeparator(.hidden)
             }
+            .listStyle(.plain)
+            .scrollContentBackground(.hidden)
+            .background(Color.white.ignoresSafeArea())
         }
-        .listStyle(.plain)
-        .scrollContentBackground(.hidden)
-        .background(Color.white.ignoresSafeArea())
     }
 }
 
 #Preview {
-    FullMenuView()
+    FullMenuView(isLiked: .constant(false))
 }

@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct TeaModel: Identifiable {
+struct TeaModel: Identifiable, Hashable {
     let id = UUID()
-    let teaImage : String
-    let teaCategory : String
+    let teaImage: String
+    let teaCategory: String
 }

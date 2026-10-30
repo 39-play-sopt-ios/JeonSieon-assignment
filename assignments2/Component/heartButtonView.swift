@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct heartButtonView: View {
-    @Binding var isClicked : Bool
+struct HeartButtonView: View {
+    @Binding var isClicked: Bool
     var body: some View {
         Button {
             isClicked.toggle()
@@ -19,5 +19,5 @@ struct heartButtonView: View {
 }
 
 #Preview {
-    heartButtonView(isClicked: .constant(false))
+    HeartButtonView(isClicked: .constant(false))
 }

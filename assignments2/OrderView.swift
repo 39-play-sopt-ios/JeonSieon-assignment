@@ -14,11 +14,12 @@ enum SelectType: String {
 
 
 struct OrderView: View {
-    @State private var selected : SelectType = .fullMenu
+    @State private var isLiked = false
+    @State private var selected: SelectType = .fullMenu
+    
     var body: some View {
         NavigationStack {
             VStack(spacing: 0) {
-
                 Text("Order")
                     .font(.head4)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -59,11 +60,17 @@ struct OrderView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
 
 
-                ProductListView()
+                
 
                 menuContent
                 
                 BlackBoxView()
+            }
+            .navigationDestination(for: TeaModel.self) { _ in
+                NewProductView()
+            }
+            .navigationDestination(for: NewProductModel.self) { product in
+                ProductInfoView(product: product, isLiked: $isLiked)
             }
         }
     }
@@ -72,9 +79,9 @@ struct OrderView: View {
     private var menuContent: some View {
         
         if selected == .fullMenu {
-            FullMenuView()
+            FullMenuView(isLiked: $isLiked)
         } else if selected == .ownMenu{
-            OwnMenuView()
+            OwnMenuView(isLiked: $isLiked)
         }
         
     }

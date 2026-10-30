@@ -9,8 +9,8 @@ import SwiftUI
 
 struct MenuRowView: View {
     let id = UUID()
-    let teaImage : String
-    let teaCategory : String
+    let teaImage: String
+    let teaCategory: String
     var body: some View {
         HStack {
             Image(teaImage)

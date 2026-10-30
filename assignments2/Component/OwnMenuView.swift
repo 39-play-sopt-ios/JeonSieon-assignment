@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct OwnMenuView: View {
-    @State var isClicked = false
+
+    @Binding var isLiked: Bool
     
     var body: some View {
         Group {
-            if isClicked == true {
+            if isLiked == true {
                 VStack {
                     HStack{
                         Image("tea1")
@@ -21,31 +22,31 @@ struct OwnMenuView: View {
                             .frame(width: 90, height: 90)
                             .clipShape(Circle())
                             .padding(.leading, 18)
-                        
+
                         VStack(alignment: .leading) {
                             Text("아이스 카스텔라 고구마 라뗴")
                                 .font(.subhead1)
                                 .padding(.bottom, 2)
-                            
+
                             Text("Iced Castella Sweet Potato Milk")
                                 .font(.cap2)
                                 .foregroundStyle(.gray1)
                                 .padding(.bottom, 10)
-                            
+
                             Text("6,900원")
                                 .font(.subhead1)
-                            
+
                         }
                         Spacer()
-                        
-                        heartButtonView(isClicked: $isClicked)
+
+                        HeartButtonView(isClicked: $isLiked)
                             .padding(.trailing, 16)
                             .padding(.bottom, 50)
-                        
-                        
+
+
                     }
                     .padding(.top, 29)
-                    
+
                     Spacer()
                 }
             }
@@ -59,7 +60,7 @@ struct OwnMenuView: View {
                     }
                     .font(.cap3)
                     .foregroundStyle(.gray300)
-                    
+
                     Spacer()
                 }
             }
@@ -67,6 +68,3 @@ struct OwnMenuView: View {
     }
 }
 
-#Preview {
-    OwnMenuView(isClicked: false)
-}
